@@ -1,0 +1,44 @@
+.right-side, .left-side{
+    height: 100vh;
+    width : 100%;
+}
+div.right-side{
+    font-weight: bold ;
+}
+a{
+    background-color: black;
+}
+h1, h2{
+    font-family: Arial ;
+    font-size: x-large;
+    font-style: normal ;
+    text-transform: uppercase;
+    background-size: cover;
+}
+h{
+    font-family: Arial ;
+    font-size:  xxx-large;
+    font-style: normal ;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: darkgray;
+}
+
+body{
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+p, p1, p2, p3{
+    font-family: "Arial", serif ;
+    font-size: medium;
+    font-style: normal ;
+}
+div{
+    margin-left: 20px ;
+    padding: 20px;
+}
+div.right-side{
+    border: solid;
+}

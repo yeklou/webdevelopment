@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vega-Lite Bar/line Chart Project</title>
+    <meta charset="utf-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
+
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Template for Embedding Vega-Lite Visualization:</br>Bar/Line Chart on "Disasters" Dataset</h1>
+<!-- Container for the visualization -->
+<div id="vis"></div>
+<script>
+// Assign the specification to a local variable vlSpec.
+var vlSpec =
+    {
+        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+
+        data:{
+            url:'https://raw.githubusercontent.com/vega/vega/master/docs/data/disasters.csv'
+
+        },
+
+        'hconcat':[{
+            description:'1.Comparison of number of deaths between different types of natural disasters using a bar chart',
+            "width":300,
+            "height":350,
+            mark:{
+                type: 'bar'
+            },
+
+            encoding:{
+                x:{
+                    field:'Entity',
+                    type: 'nominal'
+                },
+                y:{
+                    field: 'Deaths',
+                    type: 'quantitative'
+                },
+                color:{
+                    field:'Entity'
+                }
+            }
+        },
+
+            {
+
+                description:'Show the trend of various natural disasters in one line chart; feel free to exclude ' +
+                    'all natural disasters as it is an aggregate value. Assign line colors based on the type of the disaster',
+                "width":400,
+                "height":350,
+                mark: 'line',
+
+                encoding:{
+                    x:{
+                        field:'Year',
+                        type: 'temporal'
+                    },
+                    y:{
+                        field: 'Deaths',
+                        type: 'quantitative',
+                        aggregate:'mean'
+                    },
+                    color:{
+                        field:'Entity',
+                        type: 'nominal'
+                    }
+                }
+            }
+        ]
+    };
+
+// Embed the visualization in the container with id `vis`
+vegaEmbed('#vis', vlSpec);
+</script>
+</body>
+</html>
